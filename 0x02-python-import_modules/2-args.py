@@ -1,12 +1,15 @@
 #!/usr/bin/python3
-import sys
+from sys import argv
+number = 0
 if __name__ == "__main__":
-    if len(sys.argv) - 1 == 0:
-        print("0 arguments.")
+    if len(argv) - 1 == 0:
+        print("{} arguments.".fomat(number))
     else:
-        print("{} arguments:".format(len(sys.argv) - 1))
-        j = 0
-        for i in sys.argv:
-            if j != 0:
-                print("{} : {}".format(j, i))
-            j = j + 1
+        if len(argv) - 1 == 1:
+            print("{} argument:".format(len(argv) - 1))
+        else:
+            print("{} arguments:".format(len(argv) - 1))
+        for i in argv:
+            if number != 0:
+                print("{}: {}".format(number, i))
+            number = number + 1
