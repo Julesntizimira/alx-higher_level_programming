@@ -1,4 +1,5 @@
 # include "lists.h"
+# include <stdio.h>
 /**
  * is_palindrome - check for palindrome
  * @head: pointer to head of list
@@ -13,23 +14,16 @@ int is_palindrome(listint_t **head)
 		return (1);
 	if ((*head)->next == NULL)
 		return (1);
-	while (1)
+	while (fast != NULL && fast->next != NULL)
 	{
 		tmp = slow;
-		if (fast == NULL)
-		{
-			tmp = tmp->next;
-			break;
-		}
-		else if (fast->next == NULL)
-		{
-			tmp = tmp->next->next;
-			break;
-		}
 		slow = slow->next;
 		fast = fast->next->next;
 	}
-	slow->next = NULL;
+	if (fast != NULL)
+		slow = slow->next;
+	tmp->next = NULL;
+	tmp = slow;
 	while (tmp != NULL)
 	{
 		h = tmp;
@@ -38,7 +32,7 @@ int is_palindrome(listint_t **head)
 		prev = h;
 	}
 	tmp = h;
-	while (first && tmp)
+	while (first || tmp)
 	{
 		if (first->n != tmp->n)
 			return (0);
