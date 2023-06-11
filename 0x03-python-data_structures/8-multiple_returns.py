@@ -1,9 +1,8 @@
 #!/usr/bin/python3
 def multiple_returns(sentence):
-    my_list = []
-    my_list.append(len(sentence))
+    my_tuple = len(sentence),
     if len(sentence) == 0:
-        my_list.append(None)
+        my_tuple = my_tuple + None
     else:
-        my_list.append(sentence[0])
-    my_tuple = tuple(i for i in my_list)
+        new_tuple = my_tuple + (sentence[0],)
+    return new_tuple
