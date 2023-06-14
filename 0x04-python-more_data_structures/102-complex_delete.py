@@ -5,5 +5,5 @@ def complex_delete(a_dictionary, value):
         if a_dictionary.get(i) == value:
             _list.append(i)
     for i in _list:
-        a_dictionary.pop(i) 
+        a_dictionary.pop(i)
     return a_dictionary
