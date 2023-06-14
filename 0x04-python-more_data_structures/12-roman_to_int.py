@@ -2,7 +2,7 @@
 def roman_to_int(roman_string):
     if not roman_string:
         return None
-    if isinstance(roman_string, str) == False:
+    if isinstance(roman_string, str) is False:
         return None
     sum = 0
     dict1 = {
