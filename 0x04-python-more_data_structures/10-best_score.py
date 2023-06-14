@@ -8,10 +8,10 @@ def best_score(a_dictionary):
         s = ''
         for i in a_dictionary:
             if j == 0:
-                    _max = a_dictionary[i]
-                    j += 1
-                    s = i
-                    continue
+                _max = a_dictionary[i]
+                j += 1
+                s = i
+                continue
             if a_dictionary[i] > _max:
                 _max = a_dictionary[i]
                 s = i
