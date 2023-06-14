@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 def roman_to_int(roman_string):
-    if roman_string is None or type(roman_string) != str:
+    if not roman_string:
+        return None
+    if isinstance(roman_string, str) == False:
         return None
     sum = 0
     dict1 = {
