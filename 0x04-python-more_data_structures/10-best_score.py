@@ -3,10 +3,9 @@ def best_score(a_dictionary):
     if a_dictionary is None:
         return None
     else:
-        my_list = sorted(a_dictionary)
-        _max = a_dictionary[my_list[0]]
+        _max = 0
         s = ''
-        for i in my_list:
+        for i in a_dictionary:
             if a_dictionary[i] > _max:
                 _max = a_dictionary[i]
                 s = i
