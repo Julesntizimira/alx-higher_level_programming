@@ -3,7 +3,12 @@
 
 
 class Square:
-    '''class square that defines a square'''
+    """Initialize a new square.
+
+    Args:
+         size (int): The size of the new square.
+         """
+
     def __init__(self,  size=0):
         '''constructor'''
         if not isinstance(size, int):
