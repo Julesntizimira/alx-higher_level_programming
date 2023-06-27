@@ -3,7 +3,7 @@
 
 
 class Square:
-    """represent square class"""
+    """represent square"""
 
     def __init__(self,  size=0):
         """Initialize a new square.
@@ -28,4 +28,4 @@ class Square:
 
     def area(self):
         """Public instance method"""
-        return self.__size ** 2
+        return (self.__size ** 2)
