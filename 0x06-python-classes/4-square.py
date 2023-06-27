@@ -1,21 +1,21 @@
 #!/usr/bin/python3
-'''Define a squre class'''
+"""Define a squre class"""
 
 
 class Square:
-    '''square class'''
+    """square class"""
 
     def __init__(self,  size=0):
-        '''Initialize a new square.
+        """Initialize a new square.
 
         Args:
-        size (int): The size of the new square.
-        '''
+           size (int): The size of the new square.
+        """
         self.__size = size
 
     @property
     def size(self):
-        '''Get/set the current size of the square.'''
+        """Get/set the current size of the square."""
         return(self.__size)
 
     @size.setter
@@ -27,5 +27,5 @@ class Square:
         self.__size = value
 
     def area(self):
-        '''Public instance method'''
+        """Public instance method"""
         return self.__size ** 2
