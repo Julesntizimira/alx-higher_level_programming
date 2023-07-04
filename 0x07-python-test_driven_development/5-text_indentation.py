@@ -14,7 +14,10 @@ def text_indentation(text):
     '''
     if type(text) is not str:
         raise TypeError("text must be a string")
+    token = ""
     for i in text:
-        print(i, end="")
+        token = token + i
         if i == '.' or i == '?' or i == ':':
-            print('\n')
+            print("{}\n".format(token.strip()))
+            token = ""
+    print("{}".format(token.strip()), end="")
