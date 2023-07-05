@@ -5,6 +5,7 @@
 
 import sys
 
+
 def solve_nqueens(N):
     if not N.isdigit():
         print("N must be a number")
@@ -21,6 +22,7 @@ def solve_nqueens(N):
 
     for solution in solutions:
         print(solution)
+
 
 def solve_nqueens_helper(board, col, solutions):
     N = len(board)
@@ -44,6 +46,7 @@ def solve_nqueens_helper(board, col, solutions):
 
             # Remove the queen from (row, col) for backtracking
             board[row][col] = 0
+
 
 def is_safe(board, row, col):
     N = len(board)
@@ -71,6 +74,7 @@ def is_safe(board, row, col):
 
     return True
 
+
 if __name__ == "__main__":
     if len(sys.argv) != 2:
         print("Usage: nqueens N")
@@ -78,4 +82,3 @@ if __name__ == "__main__":
 
     N = sys.argv[1]
     solve_nqueens(N)
-
