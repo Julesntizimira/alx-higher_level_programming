@@ -12,7 +12,6 @@ class MyList(list):
         a = sorted(self)
         print(a)
 
-
     def __str__(self):
         '''return printable sorted list as a string'''
         j = 0
