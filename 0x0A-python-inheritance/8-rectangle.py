@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 ''' module 5-base_geometry
-    defines a class BaseGeometry
+    defines a class BaseGeometry as super
+    and subclass Rectangle
 '''
 
 
@@ -26,7 +27,7 @@ class Rectangle(BaseGeometry):
     '''
     def __init__(self, width, height):
         '''constructor'''
-        self.__width = width
+        super().integer_validator("height", height)
         self.__height = height
-        super().integer_validator("height", self.__height)
-        super().integer_validator("width", self.__width)
+        super().integer_validator("width", width)
+        self.__width = width
