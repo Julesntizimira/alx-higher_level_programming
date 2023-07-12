@@ -11,11 +11,4 @@ class Square(Rectangle):
         '''constructor'''
         self.integer_validator('size', size)
         self.__size = size
-
-    def area(self):
-        '''returns square area '''
-        return self.__size * self.__size
-
-    def __str__(self):
-        ''' return string representation of square'''
-        return "[Rectangle] {}/{}".format(self.__size, self.__size)
+        super().__init__(size, size)
