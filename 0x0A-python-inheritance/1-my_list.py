@@ -9,7 +9,9 @@ class MyList(list):
     '''
     def print_sorted(self):
         '''print sorted list'''
-        self = list.sort(self)
+        a = sorted(self)
+        print(a)
+
 
     def __str__(self):
         '''return printable sorted list as a string'''
