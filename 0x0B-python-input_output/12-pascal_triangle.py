@@ -8,13 +8,19 @@ def pascal_triangle(n):
     '''
     if n <= 0:
         return []
-
-    trs = [[1]]
-    while len(trs) != n:
-        tr = trs[-1]
-        temp = [1]
-        for i in range(len(tr) - 1):
-            temp.append(tr[i] + tr[i + 1])
-        temp.append(1)
-        trs.append(tmp)
-    return trs
+    tri = [[1]]
+    for i in range(n - 1):
+        s_tria = []
+        for j in range(i + 2):
+            if j == 0:
+                x = 0
+                y = tri[i][j]
+            elif j == i + 1:
+                x = tri[i][j - 1]
+                y = 0
+            else:
+                x = tri[i][j - 1]
+                y = tri[i][j]
+            s_tria.append(x + y)
+        tri.append(s_tria)
+    return tri
