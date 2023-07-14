@@ -1,48 +1,54 @@
 #!/usr/bin/python3
 ''' reads stdin line by line and computes metrics
 '''
+from sys import stdin
 
 
-if __name__ == '__main__':
-    from sys import stdin
+def print_all(size, codes):
+    """
+    Function that prints all, duh!
 
-    code_dict = {}
-    total_size = 0
-    file_size_index = -1
-    status_code_index = -2
-    valid_index = [200, 301, 400, 401, 403, 404, 405, 500]
-    i = 0
-    try:
-        for line in stdin:
-            if i != 0 and i % 10 == 0:
-                print("File size: {:d}".format(total_size))
-                for c in sorted(code_dict):
-                    print("{}: {}".format(c, code_dict[c]))
-            stripped = line.split()
-            try:
-                file_size = int(stripped[file_size_index])
-                total_size += file_size
-            except (IndexError, ValueError):
-                pass
-            try:
-                code = int(stripped[status_code_index])
-            except (IndexError, ValueError):
-                pass
-            if code in valid_index:
-                print(line)
-                print(code)
-                print(code_dict)
-                if code in code_dict:
-                    code_dict[code] = code_dict[code] + 1
-                else:
-                    code_dict[code] = 1
-            
-            i += 1
-        print("File size: {:d}".format(total_size))
-        for c in sorted(code_dict):
-            print("{}: {}".format(c, code_dict[c]))
-    except KeyboardInterrupt as e:
-        print("File size: {:d}".format(total_size))
-        for c in sorted(code_dict):
-            print("{}: {}".format(c, code_dict[c]))
-        raise
+    Args:
+        size (int): size of file
+        codes (dict): codes dictionnary
+    """
+    print("File size: {}".format(size))
+    for key in codes:
+        if codes[key] != 0:
+            print("{}: {}".format(key, codes[key]))
+
+
+size = 0
+count = 0
+codes = {
+    "200": 0,
+    "301": 0,
+    "400": 0,
+    "401": 0,
+    "403": 0,
+    "404": 0,
+    "405": 0,
+    "500": 0,
+}
+try:
+    for line in stdin:
+        if count == 10:
+            print_all(size, codes)
+            count = 0
+        else:
+            count += 1
+        lines = line.split()
+        try:
+            size += int(lines[-1])
+        except (IndexError, ValueError):
+            pass
+        try:
+            for key in codes:
+                if key == lines[-2]:
+                    codes[key] += 1
+        except IndexError:
+            pass
+    print_all(size, codes)
+except KeyboardInterrupt:
+    print_all(size, codes)
+    raise
