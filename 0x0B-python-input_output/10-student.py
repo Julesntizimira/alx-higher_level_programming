@@ -18,7 +18,13 @@ class Student:
            names contained in this list must be retrieved.
            Otherwise, all attributes must be retrieved
         '''
-        if (type(attrs) == list and
-                all(type(ele) == str for ele in attrs)):
-            return {k: getattr(self, k) for k in attrs if hasattr(self, k)}
+        dic = {}
+        if type(attrs) is list:
+            for element in attrs:
+                if type(element) is not str:
+                    break
+                if hasattr(self, element):
+                    dic[element] = getattr(self, element)
+            return dic
+
         return self.__dict__
