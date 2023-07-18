@@ -16,6 +16,4 @@ for i in range(length):
         j += 1
         continue
     my_list.append(argv[i])
-
-with open('add_item.json', 'w') as f:
-    json.dump(my_list, f)
+save_to_json_file(my_list, 'add_item.json')
