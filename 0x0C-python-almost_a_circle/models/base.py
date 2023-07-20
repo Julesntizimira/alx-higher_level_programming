@@ -3,6 +3,7 @@
 import json
 import csv
 
+
 class Base:
     ''' class Base '''
     __nb_objects = 0
@@ -17,7 +18,7 @@ class Base:
 
     @staticmethod
     def to_json_string(list_dictionaries):
-        '''returns the JSON string representation 
+        '''returns the JSON string representation
            of list_dictionaries
         '''
         if list_dictionaries is None or len(list_dictionaries) == 0:
@@ -56,7 +57,7 @@ class Base:
         '''that returns an instance
            with all attributes already set
         '''
-        A = cls(5,2,4,5)
+        A = cls(5, 2, 4, 5)
         A.update(**dictionary)
         return A
 

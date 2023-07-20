@@ -81,7 +81,9 @@ class Rectangle(Base):
 
     def __str__(self):
         '''print string represantation of an instance'''
-        return f"[Rectangle] ({self.id}) {self.__x}/{self.__y} - {self.__width}/{self.__height}"
+        return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.__x,
+                                                       self.__y, self.__width,
+                                                       self.__height)
 
     def display(self):
         ''' to print in stdout the Rectangle instance
@@ -115,5 +117,6 @@ class Rectangle(Base):
 
     def to_dictionary(self):
         '''return dictionary represantation of an instance'''
-        dict1 = {'x' : self.__x, 'y' : self.__y, 'id': self.id, 'height': self.__height, 'width': self.__width}
+        dict1 = {'x': self.__x, 'y': self.__y, 'id': self.id,
+                 'height': self.__height, 'width': self.__width}
         return dict1
