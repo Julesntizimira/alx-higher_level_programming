@@ -1,3 +1,4 @@
 -- a script that lists all shows contained in hbtn_0d_tvshows that have at least one genre linked
 SELECT title, genre_id
-WHERE (genre_id >= 1);
+WHERE (genre_id >= 1)
+ORDER BY title ASC;
