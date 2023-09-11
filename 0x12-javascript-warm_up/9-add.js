@@ -4,6 +4,6 @@
  */
 const argv = process.argv;
 function add(a, b) {
-  return a + b;
+  console.log(a + b);
 }
-console.log(add(parseInt(argv[2]), parseInt(argv[3])));
+add(parseInt(argv[2]), parseInt(argv[3]));
