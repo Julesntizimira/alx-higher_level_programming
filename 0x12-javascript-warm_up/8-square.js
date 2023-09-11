@@ -12,7 +12,9 @@ if (isNaN(myVar)) {
     for (let j = 0; j < myVar; j++) {
       str += 'X';
     }
-    str += '\n';
+    if (i !== myVar - 1) {
+      str += '\n';
+    }
   }
   console.log(str);
 }
