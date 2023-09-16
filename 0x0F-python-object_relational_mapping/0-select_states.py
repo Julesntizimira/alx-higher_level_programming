@@ -1,6 +1,9 @@
 #!/usr/bin/python3
-
+'''
+a script that lists all states from the database hbtn_0e_0_usa
+'''
 import mysql.connector
+
 
 conn = mysql.connector.connect(
         host='localhost',
@@ -10,6 +13,8 @@ conn = mysql.connector.connect(
         database='hbtn_0e_0_usa'
         )
 cursor = conn.cursor()
-cursor.execute("SELECT id, name FROM states GROUP BY id ORDER BY id")
-for table in cursor:
-    print(table)
+cursor.execute("SELECT * FROM states ORDER BY states.id")
+
+if __name__ == '__main__':
+    for table in cursor:
+        print(table)

@@ -11,5 +11,7 @@ conn = mysql.connector.connect(
         )
 cursor = conn.cursor()
 cursor.execute("SELECT * FROM states ORDER BY name")
-for table in cursor:
-    print(table)
+
+if __name__ == '__main__':
+    for table in cursor:
+        print(table)
