@@ -2,12 +2,12 @@
 '''
 a script that lists all states from the database hbtn_0e_0_usa
 '''
-import MySQLdb
+import mysql.connector
 from sys import argv
 
 
 if __name__ == '__main__':
-    conn = MySQLdb.connect(
+    conn = mysql.connector.connect(
             host='localhost',
             port=3306,
             user=argv[1],
