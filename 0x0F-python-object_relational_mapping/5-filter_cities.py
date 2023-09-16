@@ -21,11 +21,7 @@ if __name__ == '__main__':
                        WHERE states.name=%s
                        ORDER BY cities.id """, (argv[4],))
     rows = cursor.fetchall()
-    for r in rows:
-        print(r[0], end="")
-        if r != rows[-1]:
-            print(", ", end="")
-        else:
-            print()
+    myList = list(row[0] for row in rows)
+    print(*myList, sep=", ")
     cursor.close()
     db.close()
