@@ -18,7 +18,7 @@ if __name__ == '__main__':
     matc = argv[4] 
     cursor.execute("""SELECT * FROM states
                       WHERE states.name LIKE BINARY '{}'
-                      ORDER BY states.id""".format(matc))
+                      ORDER BY states.id""".format(matc,))
     rows = cursor.fetchall()
     for r in rows:
         print(r)
