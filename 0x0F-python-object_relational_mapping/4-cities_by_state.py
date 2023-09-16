@@ -14,7 +14,7 @@ if __name__ == '__main__':
             db=argv[3]
             )
     cursor = db.cursor()
-    cursor.execute(""" SELECT cities.id, states.name, cities.name
+    cursor.execute(""" SELECT cities.id, cities.name, states.name
                        FROM cities
                        INNER JOIN states
                        WHERE states.id = cities.state_id
