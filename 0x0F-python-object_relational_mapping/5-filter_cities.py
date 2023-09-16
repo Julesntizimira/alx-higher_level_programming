@@ -18,7 +18,7 @@ if __name__ == '__main__':
                        FROM states
                        INNER JOIN cities
                        ON states.id = cities.state_id
-                       WHERE states.name = %s
+                       WHERE states.name=%s
                        ORDER BY cities.id """, (argv[4],))
     rows = cursor.fetchall()
     for r in rows:
