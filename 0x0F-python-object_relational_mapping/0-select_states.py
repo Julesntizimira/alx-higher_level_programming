@@ -2,10 +2,10 @@
 '''
 a script that lists all states from the database hbtn_0e_0_usa
 '''
-import mysql.connector
+import MySQLdb
 
 
-conn = mysql.connector.connect(
+conn = MySQLdb.connect(
         host='localhost',
         port='3306',
         user='root',
