@@ -15,6 +15,9 @@ if __name__ == '__main__':
             db=argv[3]
             )
     cursor = conn.cursor()
-    cursor.execute("SELECT * FROM states WHERE states.name LIKE 'N%' ORDER BY states.id")
-    for table in cursor:
-        print(table)
+    cursor.execute("""SELECT * FROM states
+                      WHERE states.name LIKE BINARY 'N%'
+                      ORDER BY states.id""")
+    rows = cursor.fetchall()
+    for r in rows:
+        print(r)
