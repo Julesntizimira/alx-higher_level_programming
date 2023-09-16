@@ -15,3 +15,6 @@ if __name__ == "__main__":
     st = State(name='Louisiana')
     session.add(st)
     session.commit()
+
+    instance = session.query(State).filter(State.name == 'Louisiana').first()
+    print(instance.id)
