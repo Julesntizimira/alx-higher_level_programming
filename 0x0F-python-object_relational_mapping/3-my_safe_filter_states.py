@@ -15,10 +15,10 @@ if __name__ == '__main__':
             db=argv[3]
             )
     cursor = conn.cursor()
-    matc = argv[4] 
+    matc = argv[4]
     cursor.execute("""SELECT * FROM states
-                      WHERE states.name LIKE BINARY '{}'
-                      ORDER BY states.id""".format(matc,))
+                      WHERE states.name LIKE %s
+                      ORDER BY states.id""", (matc,))
     rows = cursor.fetchall()
     for r in rows:
         print(r)
