@@ -13,14 +13,13 @@ if __name__ == '__main__':
             passwd=argv[2],
             db=argv[3]
             )
-    cursor = db.cursor()
-    st_name = argv[4]
+    cursor = db.cursor()]
     cursor.execute(""" SELECT cities.name
                        FROM states
                        INNER JOIN cities
                        ON states.id = cities.state_id
                        WHERE states.name = %s
-                       ORDER BY cities.id """, (st_name,))
+                       ORDER BY cities.id """, (argv[4],))
     rows = cursor.fetchall()
     for r in rows:
         print(r[0], end="")
