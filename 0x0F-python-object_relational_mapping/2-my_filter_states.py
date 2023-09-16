@@ -16,8 +16,8 @@ if __name__ == '__main__':
             )
     cursor = conn.cursor()
     cursor.execute("""SELECT * FROM states
-                      WHERE states.name LIKE BINARY 'N%'
-                      ORDER BY states.id""")
+                      WHERE states.name = '{}'
+                      ORDER BY states.id""".format(argv[4]))
     rows = cursor.fetchall()
     for r in rows:
         print(r)
