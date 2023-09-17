@@ -10,7 +10,6 @@ Base = declarative_base()
 class State(Base):
     '''represent states'''
     __tablename__ = "states"
-    id = Column("id", Integer, primary_key=True, autoincrement=True)
-    name = Column("name", String(128), nullable=False)
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    name = Column(String(128), nullable=False)
     cities = relationship("City", backref="states")
-
