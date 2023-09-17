@@ -14,11 +14,11 @@ if __name__ == "__main__":
                            .format(argv[1], argv[2], argv[3]))
     Base.metadata.create_all(bind=engine)
     session = Session(bind=engine)
-    st = State(
-            name="California",
-            cities=[
-                City(name="San Francisco")
-                ]
-            )
-    session.add(st)
+
+    newState = State(name='California')
+    newCity = City(name='San Francisco')
+    newState.cities.append(newCity)
+
+    session.add(newState)
+    session.add(newCity)
     session.commit()

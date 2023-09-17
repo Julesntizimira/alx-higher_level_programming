@@ -1,10 +1,10 @@
 #!/usr/bin/python3
 ''' defines State and an instance Base = declarative_base()
 '''
-from sqlalchemy.orm import relationship, Mapped
+from sqlalchemy.orm import declarative_base, relationship
 from sqlalchemy import Column, Integer, String
-from typing import List
-from relationship_city import City, Base
+
+Base = declarative_base()
 
 
 class State(Base):
@@ -12,7 +12,5 @@ class State(Base):
     __tablename__ = "states"
     id = Column("id", Integer, primary_key=True, autoincrement=True)
     name = Column("name", String(128), nullable=False)
-    cities: Mapped[List["City"]] = relationship(
-            back_populates="state",
-            cascade="all, delete-orphan"
-            )
+    cities = relationship("City", backref="states")
+

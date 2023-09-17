@@ -1,8 +1,7 @@
 #!/usr/bin/python3
 '''define class City'''
-from base_model import Base
+from model_state import Base
 from sqlalchemy import Column, Integer, String, ForeignKey
-from sqlalchemy.orm import relationship, Mapped
 
 
 class City(Base):
@@ -12,4 +11,3 @@ class City(Base):
     name = Column("name", String(128))
     state_id = Column("state_id", Integer,
                       ForeignKey("states.id"), nullable=False)
-    state: Mapped["State"] = relationship(back_populates="cities")
