@@ -4,13 +4,23 @@
  * where the character Wedge Antilles is present.
  */
 const request = require('request');
-const url = 'https://swapi-api.alx-tools.com/api/people/18/';
+const args = process.argv;
+const id = 18;
+const url = args[2];
+let count = 0;
 
 request(url, (error, response, body) => {
   if (error) {
     console.log(error);
   } else {
     const newObj = JSON.parse(body);
-    console.log(newObj.films.length);
+    for (const i of newObj.results) {
+      for (const j of i.characters) {
+        if (j.includes(id)) {
+          count++;
+        }
+      }
+    }
+    console.log(count);
   }
 });
