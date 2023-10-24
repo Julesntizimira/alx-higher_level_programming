@@ -7,19 +7,31 @@ const request = require('request');
 const args = process.argv;
 const url = `https://swapi-api.alx-tools.com/api/films/${args[2]}`;
 
-request(url, (error, response, body) => {
-  if (error) {
-    console.log(error);
-  } else {
-    const newObj = JSON.parse(body);
-    for (const i of newObj.characters) {
+async function fetchData () {
+  const body = await new Promise((resolve, reject) => {
+    request(url, (error, response, body) => {
+      if (error) {
+        reject(error);
+      } else {
+        resolve(body);
+      }
+    });
+  });
+
+  const newObj = JSON.parse(body);
+
+  for (const i of newObj.characters) {
+    const characterBody = await new Promise((resolve, reject) => {
       request(i, (err, resp, bd) => {
         if (err) {
-          console.log(err);
+          reject(err);
         } else {
-          console.log(JSON.parse(bd).name);
+          resolve(bd);
         }
       });
-    }
+    });
+    console.log(JSON.parse(characterBody).name);
   }
-});
+}
+
+fetchData();
