@@ -15,7 +15,7 @@ request(url, (error, response, body) => {
     for (const i of newObj.characters) {
       request(i, (err, resp, bd) => {
         if (err) {
-          console.log(error);
+          console.log(err);
         } else {
           console.log(JSON.parse(bd).name);
         }
